@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Keeper Game | JavaScript</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="targets_input">
+        <input type="number" name="target_input" id="targetNumber" class="inputFields" required value="1" min="1" placeholder="Enter targeted Number">
+        <input type="text" name="player1Name" id="player1Name" class="inputFields" placeholder="Enter name of First Player">
+        <input type="text" name="player2Name" id="player2Name" class="inputFields"  placeholder="Enter name of Second Player">
+        <button id="start_btn" onclick="startGame(); inputValueCatcher()" >Start Game</button>
+    </div>
+    <div id="game_container" style="display:none;">
+        <div class="timer-container">
+            <span id="minutes-counter">05</span>
+            :
+            <span id="seconds-counter">00</span>
+        </div>
+        <div class="game_buttons-container">
+            <div class="game_button" id="pause_timer" onclick="pauseTimer()">
+                <i class="fa-solid fa-play" id="pauseIcon"></i>
+                <i class="fa-solid fa-pause" id="playIcon" style="display: none;"></i>
+            </div>
+            <div class="game_button" id="reset_timer" onclick="resetTimer(this)">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+
+        <div class="player-scores-container">
+            <div class="players" id="player1">
+                <span id="player1_score">0</span>
+                <span id="player1-name">Player 1</span>
+                <div class="score-button-container">
+                    <button class="score-button1" onclick="player1Score(this , 'Increase')">Increase</button>
+                    <button class="score-button2" onclick="player1Score(this , 'Decrease')">Decrease</button>
+                </div>
+            </div>
+            <div class="players" id="player2">
+                <span id="player2_score">0</span>
+                <span id="player2-name">Player 2</span>
+                <div class="score-button-container">
+                    <button class="score-button1" onclick="player2Score(this , 'Increase')">Increase</button>
+                    <button class="score-button2" onclick="player2Score(this , 'Decrease')">Decrease</button>
+                </div>
+            </div>
+
+        </div>
+        <button id="reset_button" onclick="resetGame()"><i class="fa-solid fa-xmark"></i>Reset</button>
+        <div id="result_container">You are Playing Score Keeper Game made with the help of JavaScript</div>
+    </div>
+
+</body>
+<script src="./index.js"></script>
+
+</html>
